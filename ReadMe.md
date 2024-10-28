@@ -6,7 +6,7 @@
 # **InfoThief - A Tool for Information Gathering 🕵️‍♂️**
 
 [![Last Commit](https://img.shields.io/github/last-commit/BigglesDevs/InfoThief?style=flat-square)](https://github.com/BigglesDevs/InfoThief/commits)
-[![GitHub stars](https://img.shields.io/github/stars/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/BigglesDevs/InfoThief.svg?style=for-the-badge&color=yellow)](https://github.com/BigglesDevs/InfoThief/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/network)
 [![GitHub issues](https://img.shields.io/github/issues/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/issues)
 ![Language](https://img.shields.io/github/languages/top/BigglesDevs/InfoThief?style=flat-square)
