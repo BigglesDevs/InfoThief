@@ -1,0 +1,10 @@
+requests
+pycryptodome
+pypiwin32
+python-dotenv
+pymongo
+pymongo[srv]
+pywin32
+pyinstaller
+pyfiglet 
+colorama
