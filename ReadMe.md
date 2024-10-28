@@ -28,7 +28,7 @@ Welcome to **InfoThief**! This tool enables gathering and analyzing information 
 
 <div align="center">
   <img src="https://i.imgur.com/1ZF0tTv.png" alt="Home Menu" width="45%" />
-  <img src="https://via.placeholder.com/400x300.png?text=Discord+Webhook+Data+Preview" alt="Discord Webhook Preview" width="45%" />
+  <img src="https://i.imgur.com/Q0SiGv5.png" alt="Discord Webhook Preview" width="45%" />
 </div>
 
 ## 🚀 Getting Started
