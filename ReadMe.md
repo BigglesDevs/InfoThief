@@ -35,9 +35,8 @@ Welcome to **InfoThief**! This tool enables gathering and analyzing information 
 
 ### Prerequisites
 1. **Python 3.x** installed on your system.
-2. **MongoDB** instance (for storing gathered data).
-3. **PyInstaller** (for compiling scripts into EXE format).
-4. **Colorama**, **pyfiglet**, **requests**, and other dependencies (listed in `requirements.txt`).
+2. **PyInstaller** (for compiling scripts into EXE format).
+3. **Colorama**, **pyfiglet**, **requests**, and other dependencies (listed in `requirements.txt`).
 
 ### Installation
 
@@ -63,15 +62,12 @@ Welcome to **InfoThief**! This tool enables gathering and analyzing information 
    pip install -r requirements.txt
    ```
 
-4. **Configure MongoDB connection**: 
-   Ensure that your MongoDB URI is correctly stored in the external configuration (e.g., fetched from Pastebin).
-
 ### Running the Script
 
 To launch **InfoThief**, use the following command:
 
 ```bash
-python main.py
+python InfoThief.py
 ```
 
 ## 🛠️ Usage
@@ -88,17 +84,20 @@ python main.py
 3. **Exit**:
    - Exits the script.
 
-## 🔒 Security Disclaimer
-This tool is intended for **educational** and **research** purposes only. Unauthorized use of this tool against systems, devices, or accounts without permission is **illegal** and unethical. The creators and contributors are not responsible for any misuse or damage caused by the use of this tool.
+## 🚨 Important Information 🚨
 
-## 📢 Important Notice
-The creator of this project, **BigglesDevelopment**, is **not involved in or responsible for any actions or data gathered using this tool**. Any information sent or gathred using the tool is strictly the responsibility of the user.
+#### 🔒 Security Disclaimer
+*This tool is intended for **educational** and **research** purposes only. Unauthorized use of this tool against systems, devices, or accounts without permission is **illegal** and unethical. The creators and contributors are not responsible for any misuse or damage caused by the use of this tool.*
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+#### 📢 Important Notice
+*The creator of this project, **BigglesDevelopment**, is **not involved in or responsible for any actions or data gathered using this tool**. Any information sent or gathred using the tool is strictly the responsibility of the user.*
 
-## 📞 Support & Contributions
-We welcome contributions! Feel free to fork this repository and submit a pull request. If you have any questions or need assistance, open an issue in the repository.
+#### 📞 Support & Contributions
+*We welcome contributions! Feel free to fork this repository and submit a pull request. If you have any questions or need assistance, open an issue in the repository.*
+
+#### 📄 License
+*This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.*
+
 
 ---
 
