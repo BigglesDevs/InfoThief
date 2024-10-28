@@ -5,15 +5,12 @@
 
 # **InfoThief - A Tool for Information Gathering 🕵️‍♂️**
 
-[![License](https://img.shields.io/github/license/BigglesDevs/InfoThief.svg?style=flat-square)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/BigglesDevs/InfoThief?style=flat-square)](https://github.com/BigglesDevs/InfoThief/commits)
-[![GitHub stars](https://img.shields.io/github/stars/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/network)
-[![GitHub issues](https://img.shields.io/github/issues/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/issues)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/BigglesDevs/InfoThief/ci.yml?branch=main&style=flat-square)](https://github.com/BigglesDevs/InfoThief/actions)
-[![Codecov](https://img.shields.io/codecov/c/github/BigglesDevs/InfoThief?style=flat-square)](https://codecov.io/gh/BigglesDevs/InfoThief)
-![Language](https://img.shields.io/github/languages/top/BigglesDevs/InfoThief?style=flat-square)
-![Visitors](https://visitor-badge.glitch.me/badge?page_id=BigglesDevs.InfoThief)
+[![License](https://img.shields.io/github/license/BigglesDevs/InfoThief.svg?style=for-the-badge)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/BigglesDevs/InfoThief?style=for-the-badge)](https://github.com/BigglesDevs/InfoThief/commits)
+[![GitHub stars](https://img.shields.io/github/stars/BigglesDevs/InfoThief.svg?style=for-the-badge)](https://github.com/BigglesDevs/InfoThief/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/BigglesDevs/InfoThief.svg?style=for-the-badge)](https://github.com/BigglesDevs/InfoThief/network)
+[![GitHub issues](https://img.shields.io/github/issues/BigglesDevs/InfoThief.svg?style=for-the-badge)](https://github.com/BigglesDevs/InfoThief/issues)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
 
 
 Welcome to **InfoThief**! This tool enables gathering and analyzing information from multiple platforms in one place. It’s designed for intelligence enthusiasts and security analysts to aggregate information for research and analysis purposes.
