@@ -1,6 +1,6 @@
 
 <div align="center">
-    <img src="https://via.placeholder.com/800x200.png?text=InfoThief+-+Gather+Information+Like+A+Pro" alt="InfoThief Banner" width="100%" />
+    <img src="https://i.imgur.com/Lrc2tfd.png" alt="InfoThief Banner" width="100%" />
 </div>
 
 # **InfoThief - A Tool for Information Gathering 🕵️‍♂️**
