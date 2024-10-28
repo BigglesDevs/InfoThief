@@ -11,7 +11,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/network)
 [![GitHub issues](https://img.shields.io/github/issues/BigglesDevs/InfoThief.svg?style=flat-square)](https://github.com/BigglesDevs/InfoThief/issues)
 ![Language](https://img.shields.io/github/languages/top/BigglesDevs/InfoThief?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/OWNER/REPO.svg?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/OWNER/REPO.svg?style=lat-square)
 
 
 Welcome to **InfoThief**! This tool enables gathering and analyzing information from multiple platforms in one place. It’s designed for intelligence enthusiasts and security analysts to aggregate information for research and analysis purposes.
