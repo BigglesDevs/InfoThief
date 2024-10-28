@@ -27,7 +27,7 @@ Welcome to **InfoThief**! This tool enables gathering and analyzing information 
 ## 📸 Screenshots & Previews
 
 <div align="center">
-  <img src="https://via.placeholder.com/400x300.png?text=Home+Menu+Preview" alt="Home Menu" width="45%" />
+  <img src="https://i.imgur.com/1ZF0tTv.png" alt="Home Menu" width="45%" />
   <img src="https://via.placeholder.com/400x300.png?text=Discord+Webhook+Data+Preview" alt="Discord Webhook Preview" width="45%" />
 </div>
 
@@ -37,8 +37,9 @@ Welcome to **InfoThief**! This tool enables gathering and analyzing information 
 1. **Python 3.x** installed on your system.
 2. **PyInstaller** (for compiling scripts into EXE format).
 3. **Colorama**, **pyfiglet**, **requests**, and other dependencies (listed in `requirements.txt`).
+4. **Disable antivirus** turn off your antivirus.
 
-### Installation
+### Installation (🛡️ If you have not turned your antivirus off it will not work make sure to disable it. 🛡️)
 
 1. **Clone the repository**:
    ```bash
