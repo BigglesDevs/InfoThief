@@ -24,19 +24,12 @@ Welcome to **InfoThief**! This tool enables gathering and analyzing information 
 - **Interactive ASCII Header**: Stylish ASCII art and interactive user interface.
 - **Advanced Error Handling**: Comprehensive error catching for robust execution.
 
-<details>
-<summary>🔍 **Example #1: Screenshots & Previews**</summary>
+## 📸 Screenshots & Previews
 
-### Preview Images:
-1. **Home Menu**:  
-   ![Home Menu](https://via.placeholder.com/400x300.png?text=Home+Menu+Preview)  
-   This shows the main menu of InfoThief where users can select options like testing or creating a distributable script.
-
-2. **Discord Webhook Preview**:  
-   ![Discord Webhook Preview](https://via.placeholder.com/400x300.png?text=Discord+Webhook+Data+Preview)  
-   Demonstrates the gathered information sent to a Discord webhook as an embed.
-
-</details>
+<div align="center">
+  <img src="https://via.placeholder.com/400x300.png?text=Home+Menu+Preview" alt="Home Menu" width="45%" />
+  <img src="https://via.placeholder.com/400x300.png?text=Discord+Webhook+Data+Preview" alt="Discord Webhook Preview" width="45%" />
+</div>
 
 ## 🚀 Getting Started
 
