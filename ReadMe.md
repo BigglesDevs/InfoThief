@@ -76,7 +76,6 @@ python InfoThief.py
 ### Main Menu Options:
 1. **Test InfoThief (On Self)**:
    - Gathers information from your own system and sends the data to a specified Discord webhook.
-   - Displays and stores information in MongoDB.
 
 2. **Create InfoThief (Distribute)**:
    - Allows you to create and distribute a personalized version of the script.
