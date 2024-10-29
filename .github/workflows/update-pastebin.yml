@@ -1,0 +1,32 @@
+name: Update Pastebin Version
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-pastebin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Read Version from File
+        id: read_version
+        run: |
+          version=$(grep -oP '"version":\s*"\K[^\"]+' version.json)
+          echo "::set-output name=version::$version"
+
+      - name: Update Pastebin with New Version
+        env:
+          PASTEBIN_API_KEY: ${{ secrets.PASTEBIN_API_KEY }}
+          PASTEBIN_PASTE_ID: ${{ secrets.PASTEBIN_PASTE_ID }}
+        run: |
+          curl -X POST "https://pastebin.com/api/api_edit_paste.php" \
+            -d "api_dev_key=${{ env.PASTEBIN_API_KEY }}" \
+            -d "api_user_key=" \
+            -d "api_paste_code=${{ env.PASTEBIN_PASTE_ID }}" \
+            -d "api_paste_data={\"version\": \"${{ steps.read_version.outputs.version }}\", \"download_url\": \"https://github.com/${{ github.repository }}/releases/latest\"}" \
+            -d "api_option=edit"
