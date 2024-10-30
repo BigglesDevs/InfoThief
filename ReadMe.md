@@ -86,11 +86,13 @@ python InfoThief.py
 
 ## 🚨 Important Information 🚨
 
+
+
 #### 🔒 Security Disclaimer
 *This tool is intended for **educational** and **research** purposes only. Unauthorized use of this tool against systems, devices, or accounts without permission is **illegal** and unethical. The creators and contributors are not responsible for any misuse or damage caused by the use of this tool.*
 
 #### 📢 Important Notice
-*The creator of this project, **BigglesDevelopment**, is **not involved in or responsible for any actions or data gathered using this tool**. Any information sent or gathred using the tool is strictly the responsibility of the user.*
+*The creator of this project, **BigglesDevelopment**, is **not involved in or responsible for any actions or data gathered using this tool**. Any information sent or gathred using the tool is strictly the responsibility of the user.* This was made for educational purpose only!
 
 #### 📞 Support & Contributions
 *We welcome contributions! Feel free to fork this repository and submit a pull request. If you have any questions or need assistance, open an issue in the repository.*
